@@ -95,8 +95,14 @@ const server = http.createServer((req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-  console.log(`Release gate listening on port ${PORT}`);
-});
+
+// Only start the server when this file is run directly (e.g. `node server.js`).
+// When required by test.js, the server should NOT auto-start, otherwise the
+// test process never exits.
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`Release gate listening on port ${PORT}`);
+  });
+}
 
 module.exports = { evaluate, server };
