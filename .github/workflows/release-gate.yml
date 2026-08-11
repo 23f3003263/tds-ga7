@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: TDS identity: 23f3003263@ds.study.iitm.ac.in
+      - name: "TDS identity: 23f3003263@ds.study.iitm.ac.in"
         run: echo "Identity verified for release gate workflow"
 
       - name: Run release gate tests
